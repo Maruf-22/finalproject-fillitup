@@ -1,0 +1,96 @@
+<!-- creates navbar and footer -->
+<div class="flex flex-col min-h-screen text-gray-50 bg-gray-200">
+  <header
+    class="flex justify-between items-center py-4 px-2 text-center bg-gray-400 w-full"
+  >
+    <!-- navbar logo and text -->
+    <div class="f">
+      <img
+        [routerLink]="['/map']"
+        class="h-auto w-11 ml-5 inline-block curser: cursor-pointer"
+        src="assets/img/placeholderLogo.png"
+        alt="logo image"
+      />
+      <p
+        [routerLink]="['/map']"
+        class="ml-5 font-semibold leading-tight text-4xl mt-0 inline-block align-middle cursor: cursor-pointer text-"
+      >
+        FillItUp
+      </p>
+    </div>
+    <!-- navbar buttons -->
+    <div class="float-right inline-block my-0 p-1">
+      <ul class="list-none">
+        <li class="inline-block font-medium text-xl px-4">
+          <a
+            class="transition ease-in-out duration-0.3 hover:text-red-700 cursor-pointer"
+            [routerLink]="['/map']"
+            >FillItUp Map</a
+          >
+        </li>
+        <li class="inline-block font-medium text-xl px-4">
+          <a
+            class="transition ease-in-out duration-0.3 hover:text-red-700 cursor-pointer"
+            [routerLink]="['/brands']"
+            >Fuel Brands</a
+          >
+        </li>
+        <li class="inline-block font-medium text-xl px-4">
+          <a
+            class="transition ease-in-out duration-0.3 hover:text-red-700 cursor-pointer"
+            [routerLink]="['/types']"
+            >Fuel Types</a
+          >
+        </li>
+        <li *ngIf="!showLogout" class="inline-block font-medium text-xl px-8">
+          <a
+            class="transition ease-in-out duration-0.3 hover:text-red-700 cursor-pointer"
+            [routerLink]="['/login']"
+            >Login</a
+          >
+        </li>
+        <li *ngIf="showLogout" class="inline-block font-medium text-xl px-8">
+          <a
+            class="transition ease-in-out duration-0.3 hover:text-red-700 cursor-pointer"
+            [routerLink]="['/manageProfile']"
+            >Account</a
+          >
+        </li>
+        <li *ngIf="showLogout" class="inline-block font-medium text-xl px-8">
+          <a
+            class="transition ease-in-out duration-0.3 hover:text-red-700 cursor-pointer"
+            (click)="logout()"
+            >Logout</a
+          >
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="flex-grow">
+    <router-outlet></router-outlet>
+  </div>
+  <!-- footer stylings -->
+  <div>
+    <footer class="relative bg-gray-600 pt-8 pb-6 mb-0">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-wrap text-center lg:text-center">
+          <div class="w-full px-4">
+            <h4 class="text-3xl fonat-semibold text-white">FillItUp</h4>
+          </div>
+        </div>
+        <hr class="my-6 border-white" />
+        <div
+          class="flex flex-wrap items-center md:justify-between justify-center"
+        >
+          <!-- Footer Copyright Text -->
+          <div class="w-full md:w-4/12 px-4 mx-auto text-center">
+            <div class="text-sm text-white font-semibold py-1">
+              Copyright © 2022 FillItUp. All rights reserved.
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
